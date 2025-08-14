@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- 数学美感动画样式 -->
+  <link rel="stylesheet" href="css/math-animation.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张津铭的个人网页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern-card.css">
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- 数学美感开场动画容器 -->
+  <div id="math-animation-container" class="math-animation-container">
+    <canvas id="math-canvas"></canvas>
+    <div class="math-text-container">
+      <h1 class="math-title">心理学 × 人工智能</h1>
+      <p class="math-subtitle">探索人类心智与智能系统的交叉领域</p>
+    </div>
+  </div>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>心理学 × AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#education">教育背景</a></li>
+                <li><a href="#projects">项目经验</a></li>
+                <li><a href="#skills">技能特长</a></li>
+                <li><a href="#research">研究经历</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>心理学与人工智能的交叉探索者</h2>
+            <p>将心理学 insights 与 AI 技术相结合，创造更智能、更人性化的解决方案</p>
+            <div class="keywords">
+                <span>认知计算</span>
+                <span>情感AI</span>
+                <span>人机交互</span>
+                <span>数据分析</span>
+            </div>
+            <a href="contact-details/contact.html" class="btn">联系我</a>
+        </div>
+        <div class="hero-image">
+            <!-- 这里将放置一个抽象的心理学与AI融合的图形 -->
+            <div class="abstract-shape"></div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="about">
+    <div class="container">
+        <h2>关于我</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images\20250104201640.jpg" alt="个人照片" class="profile-pic">
+            </div>
+            <div class="about-text">
+                <h3>背景与兴趣</h3>
+                <p>我是一名心理学专业学生，同时辅修人工智能。我的研究兴趣在于探索心理学原理如何与AI技术相结合，创造出更智能、更符合人类认知习惯的技术产品。</p>
+                <h3>职业目标</h3>
+                <p>致力于成为连接心理学与人工智能领域的桥梁，通过跨学科知识创造出能够真正理解人类需求的智能系统。</p>
+                <h3>个人特质</h3>
+                <ul>
+                    <li>批判性思维</li>
+                    <li>跨学科沟通能力</li>
+                    <li>创新问题解决能力</li>
+                    <li>同理心与用户视角</li>
+                </ul>
+                <div class="about-highlight">
+                    <p>我的目标是开发能够理解和支持人类心理健康的AI系统，</p>
+                    <p>为人们的生活带来积极影响。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 教育背景 -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>教育背景</h2>
+            <div class="education-content">
+                <div class="degree">
+                    <h3>心理学学士</h3>
+                    <p class="institution">深圳大学</p>
+                    <p class="period">2024年 - 2028年</p>
+                    <ul class="courses">
+                        <li>普通心理学</li>
+                        <li>实验心理学</li>
+                        <li>心理统计学</li>
+                        <li>认知心理学</li>
+                        <li>发展心理学</li>
+                    </ul>
+                </div>
+                <div class="degree">
+                    <h3>人工智能微专业</h3>
+                    <p class="institution">深圳大学</p>
+                    <p class="period">2024年 - 2028年</p>
+                    <ul class="courses">
+                        <li>机器学习基础</li>
+                        <li>数据结构与算法</li>
+                        <li>Python编程</li>
+                        <li>神经网络与深度学习</li>
+                        <li>人工智能伦理</li>
+                    </ul>
+                </div>
+                <div class="honors">
+                    <h3>成绩与荣誉</h3>
+                    <ul>
+                        <li>优秀学生奖学金</li>
+                        <li>心理学竞赛奖项</li>
+                        <li>AI项目挑战赛奖项</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经验 -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>项目经验</h2>
+            <div class="project-grid">
+                <!-- 项目1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/2025-08-14 134753.png" alt="个人静态网页建设">
+                    </div>
+                    <div class="project-content">
+                        <h3>个人静态网页建设</h3>
+                        <p>利用HTML、CSS、JavaScript等技术，建设个人静态网页，展示个人项目、研究经历和个人特质。通过响应式设计确保在不同设备上都有良好的显示效果。</p>
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>响应式设计</span>
+                        </div>
+                        <a href="projects/project1.html" class="project-link">查看详情</a>
+                    </div>
+                </div>
+                <!-- 项目2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images\DSC_0994.JPG" alt="认知计算模型">
+                    </div>
+                    <div class="project-content">
+                        <h3>认知计算模型</h3>
+                        <p>基于认知心理学理论，开发模拟人类决策过程的计算模型，应用于智能推荐系统。该模型能够模拟人类的注意力、记忆和决策过程。</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>PyTorch</span>
+                            <span>决策树</span>
+                            <span>认知心理学</span>
+                        </div>
+                        <a href="projects/project2.html" class="project-link">查看详情</a>
+                    </div>
+                </div>
+                <!-- 项目3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images\DSC_0994.JPG" alt="用户界面优化研究">
+                    </div>
+                    <div class="project-content">
+                        <h3>用户界面优化研究</h3>
+                        <p>针对无障碍产品进行用户界面优化研究，通过用户研究、原型设计和可用性测试，提高产品的易用性和可访问性。</p>
+                        <div class="tech-stack">
+                            <span>用户研究</span>
+                            <span>原型设计</span>
+                            <span>可用性测试</span>
+                            <span>无障碍设计</span>
+                        </div>
+                        <a href="projects/project3.html" class="project-link">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能特长 -->
+    <section id="skills" class="skills">
+    <div class="container">
+        <h2>技能特长</h2>
+        <div class="skills-content">
+            <div class="skill-category">
+                <h3>心理学专业技能</h3>
+                <ul>
+                    <li>心理测量与评估
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 90%"></div></div>
+                    </li>
+                    <li>实验设计与数据分析
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 85%"></div></div>
+                    </li>
+                    <li>认知行为分析
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 80%"></div></div>
+                    </li>
+                    <li>心理统计学
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 85%"></div></div>
+                    </li>
+                    <li>SPSS、AMOS等统计工具
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 75%"></div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>AI相关技能</h3>
+                <ul>
+                    <li>机器学习算法
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 80%"></div></div>
+                    </li>
+                    <li>Python编程
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 90%"></div></div>
+                    </li>
+                    <li>数据可视化
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 85%"></div></div>
+                    </li>
+                    <li>神经网络与深度学习
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 75%"></div></div>
+                    </li>
+                    <li>TensorFlow、PyTorch框架
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 70%"></div></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>软技能</h3>
+                <ul>
+                    <li>跨学科团队协作
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 95%"></div></div>
+                    </li>
+                    <li>问题解决能力
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 90%"></div></div>
+                    </li>
+                    <li>批判性思维
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 85%"></div></div>
+                    </li>
+                    <li>有效沟通能力
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 85%"></div></div>
+                    </li>
+                    <li>创新思维
+                        <div class="skill-level"><div class="skill-progress" style="--progress: 80%"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 研究经历 -->
+    <section id="research" class="research">
+        <div class="container">
+            <h2>研究经历</h2>
+            <div class="research-grid">
+                <!-- 研究1 -->
+                <div class="research-card">
+                    <div class="research-content">
+                        <h3>AI辅助心理干预研究</h3>
+                        <div class="research-meta">
+                            <span class="institution">深圳大学-心理学院</span>
+                            <span class="period">2024年 - 至今</span>
+                        </div>
+                        <p>参与开发基于AI的心理健康评估系统，探索机器学习在心理疾病早期筛查中的应用。</p>
+                        <div class="research-details">
+                            <h4>研究论文</h4>
+                            <p>基于深度学习的抑郁症早期筛查模型研究，熟练应用Python、PyTorch等工具，完成模型训练和评估。</p>
+                        </div>
+                        <div class="research-tags">
+                            <span>心理健康</span>
+                            <span>机器学习</span>
+                            <span>抑郁症筛查</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 研究2 -->
+                <div class="research-card">
+                    <div class="research-content">
+                        <h3>人机协作中的认知负荷研究</h3>
+                        <div class="research-meta">
+                            <span class="institution">深圳大学人机交互与智能系统实验室</span>
+                            <span class="period">2026年 - 2028年</span>
+                        </div>
+                        <p>研究不同AI辅助决策模式对人类认知负荷的影响，为智能系统设计提供心理学依据。</p>
+                        <div class="research-details">
+                            <h4>会议报告</h4>
+                            <p>人机协作中的认知负荷优化策略，国际人工智能与心理学大会，2028年。</p>
+                        </div>
+                        <div class="research-tags">
+                            <span>认知负荷</span>
+                            <span>人机交互</span>
+                            <span>智能系统设计</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 研究3 -->
+                <div class="research-card">
+                    <div class="research-content">
+                        <h3>情感计算与心理健康应用研究</h3>
+                        <div class="research-meta">
+                            <span class="institution">深圳大学情感计算实验室</span>
+                            <span class="period">2025年 - 2027年</span>
+                        </div>
+                        <p>开发基于多模态情感识别的心理健康监测系统，探索情感计算技术在心理健康领域的应用。</p>
+                        <div class="research-details">
+                            <h4>研究论文</h4>
+                            <p>基于面部表情和语音特征的抑郁症检测模型研究，计算机学报，2027年。</p>
+                        </div>
+                        <div class="research-tags">
+                            <span>情感计算</span>
+                            <span>心理健康</span>
+                            <span>多模态识别</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>1175297551@qq.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+86 183 2083 2536</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>广东省 深圳市 南山区</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="social-pages/linkedin.html"><i class="fab fa-linkedin"></i></a>
+                        <a href="social-pages/github.html"><i class="fab fa-github"></i></a>
+                        <a href="social-pages/weixin.html"><i class="fab fa-weixin"></i></a>
+                        <a href="social-pages/weibo.html"><i class="fab fa-weibo"></i></a>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="contact-details/resume.html" class="btn">下载简历</a>
+                        <a href="contact-details/portfolio.html" class="btn btn-secondary">查看作品集</a>
+                        <a href="contact-details/services.html" class="btn btn-outline">我的服务</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">发送</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 个人网页. 保留所有权利.</p>
+                <p>更新日期: 2025年8月12日</p>
+                <a href="#">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- 数学美感动画脚本 -->
+    <script src="js/math-animation.js"></script>
+    <script>
+        // 添加页面跳转时的淡出效果
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // 不拦截当前页面内的锚点跳转
+                if (this.getAttribute('href').startsWith('#')) return;
+                
+                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                
+                // 添加淡出动画
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.5s ease-out';
+                
+                // 动画结束后跳转
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

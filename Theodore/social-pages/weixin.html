@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信 - 联系我</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .social-page {
+            padding: 4rem 0;
+        }
+        .social-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .social-header {
+            background: linear-gradient(135deg, #07C160 0%, #00A86B 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .social-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        .weixin-logo {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+        .weixin-logo:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .social-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .social-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        .social-content {
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 2rem;
+            border: 10px solid white;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.5s ease;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 0.5s ease 0.3s forwards;
+        }
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+        .contact-info {
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 0.6s forwards;
+        }
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 0.5rem;
+        }
+        .contact-info .weixin-id {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #07C160;
+            margin-top: 1rem;
+        }
+        .tips {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 0.9s forwards;
+        }
+        .tips p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+        .back-btn {
+            display: inline-block;
+            background-color: #07C160;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 1.2s forwards;
+        }
+        .back-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(7, 193, 96, 0.4);
+            background-color: #00A86B;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @media (max-width: 768px) {
+            .social-header {
+                padding: 2rem 1.5rem;
+            }
+            .weixin-logo {
+                font-size: 4rem;
+            }
+            .qr-code {
+                width: 200px;
+                height: 200px;
+            }
+            .social-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>个人网站</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#contact">返回</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="social-page">
+        <div class="container">
+            <div class="social-card">
+                <div class="social-header">
+                    <i class="fab fa-weixin weixin-logo"></i>
+                    <h1>微信联系</h1>
+                    <p>扫描二维码或添加微信号联系我</p>
+                </div>
+                <div class="social-content">
+                    <img src="../images/2b46d7bd8045ee8a8253bd51fcd3ece4.jpg" alt="微信二维码" class="qr-code">
+                    <div class="contact-info">
+                        <p>也可以直接搜索微信号添加：</p>
+                        <div class="weixin-id">Zhang-59741</div>
+                    </div>
+                    <div class="tips">
+                        <p><i class="fas fa-info-circle"></i> 提示：添加时请注明您的姓名和来意，方便我快速识别并通过您的请求。</p>
+                    </div>
+                    <a href="../index.html#contact" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> 返回联系方式
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 个人网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialCard = document.querySelector('.social-card');
+            setTimeout(() => {
+                socialCard.style.opacity = '1';
+                socialCard.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

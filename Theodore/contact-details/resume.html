@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 | 心理学与人工智能交叉背景学生</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .resume-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            /* 优化整体布局 */
+            align-items: flex-start;
+        }
+
+        .resume-sidebar {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background-color: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 80px;
+            align-self: flex-start;
+            /* 美化左侧栏 */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* 左侧栏项目美化 */
+        .resume-sidebar .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        /* 联系信息项美化 */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-info-item i {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* 技能条美化 */
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .resume-content {
+            flex: 2;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards 0.4s;
+        }
+
+        .resume-section {
+            background-color: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .resume-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 5px solid var(--primary-light);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--bg-medium);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease forwards;
+        }
+
+        .resume-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--bg-medium);
+        }
+
+        .resume-heading i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-left: 2px solid var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            left: -8.5px;
+            top: 0;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            background-color: var(--primary-dark);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            background-color: var(--secondary-color);
+        }
+
+        .download-btn:hover {
+            background-color: #d45d34;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+            }
+
+            .resume-sidebar {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>心理学与AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#contact">返回</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="resume">
+        <div class="container">
+            <h2 class="section-title">个人简历</h2>
+            <div class="resume-container">
+                <div class="resume-sidebar">
+                    <img src="..\images\20250104201640.jpg" alt="个人照片" class="profile-img">
+                    <h3>张津铭</h3>
+                    <p class="subtitle">心理学专业 本科生</p>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>1175297551@qq.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+86 183 2083 2536</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>广东省 深圳市 南山区</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>深圳大学</span>
+                    </div>
+
+                    <h4>专业技能</h4>
+                    <div class="skill-item">
+                        <p>Python编程</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>机器学习</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>深度学习</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>心理学研究</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <p>数据分析</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 88%"></div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn download-btn"><i class="fas fa-download"></i> 下载PDF版</a>
+                </div>
+
+                <div class="resume-content">
+                    <div class="resume-section">
+                        <div class="resume-heading">
+                            <i class="fas fa-user"></i>
+                            <h3>个人简介</h3>
+                        </div>
+                        <p>我是一名心理学与人工智能交叉背景的学生，热衷于探索如何利用AI技术解决心理学问题。我具备扎实的心理学理论基础和较强的编程能力，熟练掌握Python、机器学习和深度学习等技术。</p>
+                        <p>我的研究兴趣包括情感计算、认知建模、人机交互等领域。我希望通过跨学科的研究，为人工智能的人性化发展贡献自己的力量。</p>
+                    </div>
+
+                    <div class="resume-section">
+                        <div class="resume-heading">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>教育经历</h3>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024年6月-至今</div>
+                            <h4>深圳大学 - 心理学专业</h4>
+                            <p>本科在读，主修心理学，辅修人工智能</p>
+                            <p>GPA: 3.5/4.5，专业排名: 前50%</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018年9月 - 2021年6月</div>
+                            <h4>佛山市第一中学</h4>
+                            <p>理科班</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <div class="resume-heading">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>项目经历</h3>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025年9月 - 2025年12月</div>
+                            <h4>情感识别系统</h4>
+                            <p>负责基于深度学习的情感识别系统的设计与实现，利用卷积神经网络和循环神经网络对人脸表情和语音信号进行情感分析。</p>
+                            <p>技术栈：Python、TensorFlow、OpenCV、Librosa</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025年7月 - 2025年12月</div>
+                            <h4>认知计算模型</h4>
+                            <p>参与认知计算模型的研究与开发，模拟人类认知过程，应用于智能教育系统。</p>
+                            <p>技术栈：Python、PyTorch、scikit-learn</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <div class="resume-heading">
+                            <i class="fas fa-award"></i>
+                            <h3>荣誉奖项</h3>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025年5月</div>
+                            <h4>中国国际大学生创新大赛深圳大学校赛铜奖</h4>
+                            <p>AI不释手</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2026年9月</div>
+                            <h4>校级一等奖学金</h4>
+                            <p>表彰学业成绩优异</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2026年10月</div>
+                            <h4>校级优秀学生干部</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 心理学与人工智能交叉背景学生个人网页. 保留所有权利.</p>
+                <p>更新日期: 2025年8月12日</p>
+                <a href="#">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            // 技能条动画
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const progress = bar.style.getPropertyValue('--progress');
+                setTimeout(() => {
+                    bar.style.width = progress;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

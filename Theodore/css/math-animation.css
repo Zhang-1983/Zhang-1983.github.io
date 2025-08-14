@@ -1,0 +1,87 @@
+/* math-animation.css */
+:root {
+  --math-primary: #3a86ff;
+  --math-secondary: #8338ec;
+  --math-tertiary: #ff006e;
+  --math-bg: #0d0221;
+  --math-text: #ffffff;
+}
+
+/* 动画容器样式 */
+.math-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--math-bg);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+#math-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.math-text-container {
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.math-title {
+  font-size: 3rem;
+  color: var(--math-text);
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, var(--math-primary), var(--math-secondary), var(--math-tertiary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradientShift 3s ease infinite;
+}
+
+.math-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+/* 动画关键帧 */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; pointer-events: all; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .math-title {
+    font-size: 2.2rem;
+  }
+  
+  .math-subtitle {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}

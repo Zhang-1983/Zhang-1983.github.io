@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人机交互界面优化 - 项目详情</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 项目详情页特有样式 */
+        .project-detail {
+            padding: 6rem 0;
+            background-color: var(--bg-light);
+        }
+        .project-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.2s;
+        }
+        .project-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-gallery {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--accent-color);
+            background-size: cover;
+            background-position: center;
+        }
+        .project-description {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+        .project-objectives, .project-approach, .project-outcomes {
+            margin-bottom: 2rem;
+        }
+        .project-technologies {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .tech-item {
+            background-color: var(--bg-medium);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .tech-item:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color-light);
+        }
+        .project-cta {
+            text-align: center;
+            margin-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 1s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>心理学 × AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">关于我</a></li>
+                <li><a href="../index.html#education">教育背景</a></li>
+                <li><a href="../index.html#projects">项目经验</a></li>
+                <li><a href="../index.html#skills">技能特长</a></li>
+                <li><a href="../index.html#research">研究经历</a></li>
+                <li><a href="../index.html#contact">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 项目详情区域 -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h2>人机交互界面优化</h2>
+                <p class="project-subtitle">应用心理学原理，优化智能设备的用户界面，提升用户体验和交互效率</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>20XX年 - 20XX年</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>用户体验研究员</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>团队规模: 4人</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                <h3>项目展示</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://via.placeholder.com/600x400/f1c40f/ffffff?text=原型设计');"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://via.placeholder.com/600x400/1abc9c/ffffff?text=用户测试');"></div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image" style="background-image: url('https://via.placeholder.com/600x400/e67e22/ffffff?text=最终界面');"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-description">
+                <div class="project-objectives">
+                    <h3>项目目标</h3>
+                    <p>本项目旨在应用认知心理学和人机交互原理，对现有智能设备界面进行优化，减少用户认知负荷，提升交互效率和用户满意度。</p>
+                </div>
+                <div class="project-approach">
+                    <h3>技术方案</h3>
+                    <p>1. <strong>用户研究</strong>：通过问卷调查、访谈和观察法，了解用户需求和痛点，识别界面设计中的问题。</p>
+                    <p>2. <strong>认知分析</strong>：应用注意力理论、记忆模型和信息处理理论，分析界面元素对用户认知的影响。</p>
+                    <p>3. <strong>原型设计</strong>：基于研究结果，设计多种界面原型，包括交互流程、视觉设计和信息架构。</p>
+                    <p>4. <strong>可用性测试</strong>：通过眼动追踪、绩效测量和主观评价，评估不同原型的有效性和用户体验。</p>
+                    <p>5. <strong>迭代优化</strong>：根据测试结果，对界面进行迭代优化，直至达到预期目标。</p>
+                </div>
+                <div class="project-outcomes">
+                    <h3>项目成果</h3>
+                    <p>1. 成功优化了智能设备的用户界面，用户完成任务的时间减少了35%。</p>
+                    <p>2. 用户认知负荷评估得分降低了40%，用户满意度提升了28%。</p>
+                    <p>3. 提出了一套基于认知心理学的界面设计指南，已应用于公司多个产品。</p>
+                    <p>4. 相关研究成果发表于人机交互国际会议。</p>
+                </div>
+            </div>
+
+            <div class="project-technologies">
+                <h3>技术栈</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fas fa-user-friends"></i>
+                        <p>用户研究</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <p>原型设计</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>可用性测试</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>数据分析</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-figma"></i>
+                        <p>Figma</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-sketch"></i>
+                        <p>Sketch</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-cta">
+                <a href="../index.html#projects" class="btn">返回项目列表</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 心理学与人工智能交叉背景学生个人网页. 保留所有权利.</p>
+                <p>更新日期: 2025年8月12日</p>
+                <a href="#">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn - 我的专业资料</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .social-page {
+            padding: 4rem 0;
+        }
+        .social-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .social-header {
+            background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .social-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.5s ease;
+        }
+        .profile-picture:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .social-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .social-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        .social-content {
+            padding: 2.5rem 2rem;
+        }
+        .profile-info {
+            margin-bottom: 2.5rem;
+        }
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .info-item:nth-child(1) { animation-delay: 0.2s; }
+        .info-item:nth-child(2) { animation-delay: 0.4s; }
+        .info-item:nth-child(3) { animation-delay: 0.6s; }
+        .info-item:nth-child(4) { animation-delay: 0.8s; }
+        .info-item i {
+            color: #0077b5;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 30px;
+            text-align: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .info-item:hover i {
+            transform: scale(1.1) rotate(5deg);
+            color: #00a0dc;
+        }
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+        .info-text p {
+            color: var(--text-medium);
+            transition: color 0.3s ease;
+        }
+        .info-item:hover p {
+            color: #0077b5;
+        }
+        .connect-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            text-align: center;
+            background-color: #0077b5;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 1s forwards;
+        }
+        .connect-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+            background-color: #00a0dc;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .social-header {
+                padding: 2rem 1.5rem;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            .social-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>个人网站</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#contact">返回</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="social-page">
+        <div class="container">
+            <div class="social-card">
+                <div class="social-header">
+                    <img src="../images/20250104201640.jpg" alt="个人头像" class="profile-picture">
+                    <h1>张津铭</h1>
+                    <p>心理学专业学生 | 热衷于创造精美的用户体验</p>
+                </div>
+                <div class="social-content">
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="info-text">
+                                <h4>当前职位</h4>
+                                <p>心理学专业学生 @ 深圳大学</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="info-text">
+                                <h4>教育背景</h4>
+                                <p>心理学学士 | 深圳大学</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info-text">
+                                <h4>所在地</h4>
+                                <p>深圳, 中国</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-globe"></i>
+                            <div class="info-text">
+                                <h4>个人网站</h4>
+                                <p><a href="../index.html" style="color: #0077b5; text-decoration: none;">www.example.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://linkedin.com" class="connect-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i> 访问我的LinkedIn主页
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 个人网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialCard = document.querySelector('.social-card');
+            setTimeout(() => {
+                socialCard.style.opacity = '1';
+                socialCard.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

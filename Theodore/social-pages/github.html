@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub - 我的代码仓库</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .social-page {
+            padding: 4rem 0;
+        }
+        .social-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .social-header {
+            background: linear-gradient(135deg, #24292e 0%, #3b4147 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .social-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.5s ease;
+        }
+        .profile-picture:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .social-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .social-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-count {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .social-content {
+            padding: 2.5rem 2rem;
+        }
+        .repo-list {
+            margin-bottom: 2.5rem;
+        }
+        .repo-item {
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-light);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #24292e;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .repo-item:nth-child(1) { animation-delay: 0.2s; }
+        .repo-item:nth-child(2) { animation-delay: 0.4s; }
+        .repo-item:nth-child(3) { animation-delay: 0.6s; }
+        .repo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-left-color: #6e5494;
+        }
+        .repo-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #24292e;
+            transition: color 0.3s ease;
+        }
+        .repo-item:hover .repo-name {
+            color: #6e5494;
+        }
+        .repo-desc {
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+        }
+        .repo-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .repo-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .visit-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            text-align: center;
+            background-color: #24292e;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 1s forwards;
+        }
+        .visit-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(36, 41, 46, 0.4);
+            background-color: #3b4147;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .social-header {
+                padding: 2rem 1.5rem;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            .stats {
+                gap: 1rem;
+            }
+            .social-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>个人网站</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#contact">返回</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="social-page">
+        <div class="container">
+            <div class="social-card">
+                <div class="social-header">
+                    <img src="../images/20250104201640.jpg" alt="个人头像" class="profile-picture">
+                    <h1>GitHub: @Zhang-1983</h1>
+                    <p>开源贡献者 | 前端技术爱好者</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-count">0</div>
+                            <div class="stat-label">仓库</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-count">0+</div>
+                            <div class="stat-label">提交</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-count">0+</div>
+                            <div class="stat-label">星标</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-content">
+                    <div class="repo-list">
+                        <div class="repo-item">
+                            <div class="repo-name">react-components</div>
+                            <div class="repo-desc">一组可复用的React组件，包含按钮、表单、模态框等常用UI元素。</div>
+                            <div class="repo-meta">
+                                <span><i class="fab fa-react"></i> React</span>
+                                <span><i class="fas fa-star"></i> 0</span>
+                                <span><i class="fas fa-code-branch"></i> 0</span>
+                            </div>
+                        </div>
+                        <div class="repo-item">
+                            <div class="repo-name">vue-template</div>
+                            <div class="repo-desc">Vue.js项目模板，集成了Vuex、Vue Router和Axios，开箱即用。</div>
+                            <div class="repo-meta">
+                                <span><i class="fab fa-vuejs"></i> Vue</span>
+                                <span><i class="fas fa-star"></i> 0</span>
+                                <span><i class="fas fa-code-branch"></i> 0</span>
+                            </div>
+                        </div>
+                        <div class="repo-item">
+                            <div class="repo-name">css-animations</div>
+                            <div class="repo-desc">收集了各种精美的CSS动画效果，包括过渡、变换和关键帧动画。</div>
+                            <div class="repo-meta">
+                                <span><i class="fab fa-css3-alt"></i> CSS</span>
+                                <span><i class="fas fa-star"></i> 0</span>
+                                <span><i class="fas fa-code-branch"></i> 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://github.com" class="visit-btn" target="_blank">
+                        <i class="fab fa-github"></i> 访问我的GitHub主页
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 个人网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialCard = document.querySelector('.social-card');
+            setTimeout(() => {
+                socialCard.style.opacity = '1';
+                socialCard.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

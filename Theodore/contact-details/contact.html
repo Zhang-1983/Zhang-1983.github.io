@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 | 心理学与人工智能交叉背景学生</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contact-page-styles.css">
+    <style>
+        /* 页面淡入淡出动画 */
+        body {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>心理学 × AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#about">关于我</a></li>
+                <li><a href="../index.html#education">教育背景</a></li>
+                <li><a href="../index.html#projects">项目经验</a></li>
+                <li><a href="../index.html#skills">技能特长</a></li>
+                <li><a href="../index.html#research">研究经历</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 联系方式 -->
+    <section class="contact-page">
+        <div class="container">
+            <h2>联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>1175297551@qq.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+86 183 2083 2536</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>广东省 深圳市 南山区</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="../social-pages/linkedin.html"><i class="fab fa-linkedin"></i></a>
+                        <a href="../social-pages/github.html"><i class="fab fa-github"></i></a>
+                        <a href="../social-pages/weixin.html"><i class="fab fa-weixin"></i></a>
+                        <a href="../social-pages/weibo.html"><i class="fab fa-weibo"></i></a>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="resume.html" class="btn">下载简历</a>
+                        <a href="portfolio.html" class="btn btn-secondary">查看作品集</a>
+                        <a href="services.html" class="btn">我的服务</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">发送</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 个人网页. 保留所有权利.</p>
+                <p>更新日期: 2025年8月12日</p>
+                <a href="#">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面跳转时的淡出效果
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // 不拦截当前页面内的锚点跳转
+                if (this.getAttribute('href').startsWith('#')) return;
+                
+                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                
+                // 添加淡出动画
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.5s ease-out';
+                
+                // 动画结束后跳转
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

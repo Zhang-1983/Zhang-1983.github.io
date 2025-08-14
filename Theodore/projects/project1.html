@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人静态网页建设 - 项目详情</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 项目详情页特有样式 */
+        .project-detail {
+            padding: 6rem 0;
+            background-color: var(--bg-light);
+        }
+        .project-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.2s;
+        }
+        .project-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .project-gallery {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.4s;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--accent-color);
+            background-size: cover;
+            background-position: center;
+        }
+        .project-description {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+        .project-objectives, .project-approach, .project-outcomes {
+            margin-bottom: 2rem;
+        }
+        .project-technologies {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .tech-item {
+            background-color: var(--bg-medium);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .tech-item:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color-light);
+        }
+        .project-cta {
+            text-align: center;
+            margin-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 1s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>心理学 × AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">关于我</a></li>
+                <li><a href="../index.html#education">教育背景</a></li>
+                <li><a href="../index.html#projects">项目经验</a></li>
+                <li><a href="../index.html#skills">技能特长</a></li>
+                <li><a href="../index.html#research">研究经历</a></li>
+                <li><a href="../index.html#contact">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 项目详情区域 -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h2>个人静态网页建设</h2>
+                <p class="project-subtitle">利用HTML、CSS、JavaScript等技术，建设个人静态网页，展示个人项目、研究经历和个人特质</p>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2024年 - 2025年</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>个人项目</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>个人项目</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-tools"></i>
+                        <span>HTML、CSS、JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                <h3>项目展示</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                            <div class="gallery-image" style="background-image: url('../images/2025-08-14 134753.png');"></div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-image" style="background-image: url('../images/2025-08-14 135548.png');"></div>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-image" style="background-image: url('../images/2025-08-14 140001.png');"></div>
+                        </div>
+                </div>
+            </div>
+            <div class="project-description">
+                <div class="project-objectives">
+                    <h3>项目目标</h3>
+                    <p>本项目旨在建设个人静态网页，展示个人项目、研究经历和个人特质，为个人品牌建设提供支持。</p>
+                </div>
+                <div class="project-approach">
+                    <h3>技术方案</h3>
+                    <p>1. <strong>网页设计</strong>：自学UI设计原理，使用Figma等工具设计个人静态网页的布局和样式。</p>
+                    <p>2. <strong>网页开发</strong>：使用HTML、CSS、JavaScript等技术，开发个人静态网页，展示个人项目、研究经历和个人特质。</p>
+                    <p>3. <strong>系统集成</strong>：将个人静态网页部署到服务器上，实现线上访问。</p>
+                </div>
+                <div class="project-outcomes">
+                    <h3>项目成果</h3>
+                    <p>1. 成功建设了个人静态网页，展示了个人项目、研究经历和个人特质。</p>
+                    <p>2. 实现了个人静态网页的线上访问，为个人品牌建设提供了支持。</p>
+                </div>
+            </div>
+
+            <div class="project-technologies">
+                <h3>技术栈</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-js-square"></i>
+                        <p>JavaScript</p>   
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-server"></i>
+                        <p>Node.js</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-network-wired"></i>
+                        <p>Express.js</p>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-sync-alt"></i>
+                        <p>MongoDB</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-cta">
+                <a href="../index.html#projects" class="btn">返回项目列表</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025  psychology and AI cross background student personal website. 保留所有权利.</p>
+                <p>更新日期: 2025年7月20日</p>
+                <a href="#">隐私政策</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

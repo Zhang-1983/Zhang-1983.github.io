@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微博 - 我的动态</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .social-page {
+            padding: 4rem 0;
+        }
+        .social-card {
+            background-color: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .social-header {
+            background: linear-gradient(135deg, #E6162D 0%, #F92A3E 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        .social-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+        .weibo-logo {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+        .weibo-logo:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .social-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .social-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-count {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .social-content {
+            padding: 2.5rem 2rem;
+        }
+        .post-list {
+            margin-bottom: 2.5rem;
+        }
+        .post-item {
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-light);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #E6162D;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .post-item:nth-child(1) { animation-delay: 0.2s; }
+        .post-item:nth-child(2) { animation-delay: 0.4s; }
+        .post-item:nth-child(3) { animation-delay: 0.6s; }
+        .post-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-left-color: #F92A3E;
+        }
+        .post-content {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .post-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .post-actions span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .post-actions span:hover {
+            color: #E6162D;
+        }
+        .visit-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            text-align: center;
+            background-color: #E6162D;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(230, 22, 45, 0.3);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease 1s forwards;
+        }
+        .visit-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(230, 22, 45, 0.4);
+            background-color: #F92A3E;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .social-header {
+                padding: 2rem 1.5rem;
+            }
+            .weibo-logo {
+                font-size: 4rem;
+            }
+            .stats {
+                gap: 1rem;
+            }
+            .social-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>个人网站</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#contact">返回</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="social-page">
+        <div class="container">
+            <div class="social-card">
+                <div class="social-header">
+                    <i class="fab fa-weibo weibo-logo"></i>
+                    <h1>微博: @墨曦</h1>
+                    <p>分享心理学知识和生活点滴</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-count">0+</div>
+                            <div class="stat-label">粉丝</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-count">3+</div>
+                            <div class="stat-label">微博</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-count">0+</div>
+                            <div class="stat-label">获赞</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-content">
+                    <div class="post-list">
+                        <div class="post-item">
+                            <div class="post-content">
+                                今天分享一个CSS动画效果，使用关键帧动画实现平滑过渡，非常适合现代Web应用。<a href="#" style="color: #E6162D; text-decoration: none;">查看详情</a>
+                            </div>
+                            <div class="post-meta">
+                                <span>2025-08-10</span>
+                                <div class="post-actions">
+                                    <span><i class="far fa-comment"></i> 25</span>
+                                    <span><i class="far fa-heart"></i> 128</span>
+                                    <span><i class="far fa-share-square"></i> 15</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-content">
+                                认知心理学是一门研究人类行为和思维的学科，关注人类的认知过程、决策-making和情感体验。<a href="#" style="color: #E6162D; text-decoration: none;">查看详情</a>
+                            </div>
+                            <div class="post-meta">
+                                <span>2025-08-05</span>
+                                <div class="post-actions">
+                                    <span><i class="far fa-comment"></i> 42</span>
+                                    <span><i class="far fa-heart"></i> 215</span>
+                                    <span><i class="far fa-share-square"></i> 36</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-content">
+                                弗洛伊德（Frederick W. Byron）是一个美国心理医生，1906年出生，1931年去世。他的工作重点是儿童和青少年的心理疾病，尤其是儿童焦虑和抑郁。他的理论被广泛接受，被认为是心理治疗的基础。<a href="#" style="color: #E6162D; text-decoration: none;">查看详情</a>
+                            </div>
+                            <div class="post-meta">
+                                <span>2025-07-28</span>
+                                <div class="post-actions">
+                                    <span><i class="far fa-comment"></i> 18</span>
+                                    <span><i class="far fa-heart"></i> 96</span>
+                                    <span><i class="far fa-share-square"></i> 12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://weibo.com" class="visit-btn" target="_blank">
+                        <i class="fab fa-weibo"></i> 访问我的微博主页
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 个人网站. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // 添加页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialCard = document.querySelector('.social-card');
+            setTimeout(() => {
+                socialCard.style.opacity = '1';
+                socialCard.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

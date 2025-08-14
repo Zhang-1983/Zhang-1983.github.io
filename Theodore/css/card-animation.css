@@ -1,0 +1,141 @@
+:root {
+    --card-animation-duration: 0.6s;
+    --card-animation-delay: 0.1s;
+    --text-fade-in-duration: 0.8s;
+    --tag-hover-scale: 1.05;
+    --link-transition-duration: 0.4s;
+    --card-soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --card-soft-gradient-start: #F0F7F4;
+    --card-soft-gradient-end: #D6E8DA;
+}
+
+/* 卡片容器动画 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem 0;
+    opacity: 0;
+    animation: gridFadeIn 1s ease-out forwards 0.3s;
+}
+
+@keyframes gridFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 单个卡片入场动画 */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: cardFadeIn var(--card-animation-duration) ease-out forwards;
+}
+
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 卡片依次入场 */
+.project-card:nth-child(1) {
+    animation-delay: var(--card-animation-delay);
+}
+
+.project-card:nth-child(2) {
+    animation-delay: calc(var(--card-animation-delay) * 2);
+}
+
+.project-card:nth-child(3) {
+    animation-delay: calc(var(--card-animation-delay) * 3);
+}
+
+/* 卡片内容排版动画 */
+.project-card h3 {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textFadeIn var(--text-fade-in-duration) ease-out forwards;
+    animation-delay: calc(var(--card-animation-delay) + 0.2s);
+}
+
+.project-card p {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textFadeIn var(--text-fade-in-duration) ease-out forwards;
+    animation-delay: calc(var(--card-animation-delay) + 0.4s);
+}
+
+.tech-stack {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textFadeIn var(--text-fade-in-duration) ease-out forwards;
+    animation-delay: calc(var(--card-animation-delay) + 0.6s);
+}
+
+.project-link {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: textFadeIn var(--text-fade-in-duration) ease-out forwards;
+    animation-delay: calc(var(--card-animation-delay) + 0.8s);
+}
+
+@keyframes textFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 标签悬停动画 */
+.tech-stack span {
+    transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+    transform: scale(var(--tag-hover-scale));
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 111, 165, 0.2);
+}
+
+/* 链接交互效果增强 */
+.project-link {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--link-transition-duration) ease;
+}
+
+.project-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s ease;
+}
+
+.project-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(74, 111, 165, 0.25);
+}
+
+.project-link:hover::after {
+    left: 100%;
+}
+
+/* 卡片悬停增强效果 */
+.project-card:hover {
+    transform: perspective(1000px) translateZ(15px) translateY(calc(-1 * var(--card-hover-offset)));
+    box-shadow: var(--card-soft-shadow);
+}
+
+/* 柔和色彩调整 */
+.project-card {
+    background: linear-gradient(135deg, var(--card-soft-gradient-start), var(--card-soft-gradient-end));
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
