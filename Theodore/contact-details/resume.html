@@ -226,31 +226,64 @@ body{
                     <div class="skill-item">
                         <p>Python编程</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="--progress: 90%"></div>
+                           <div class="skill-progress" data-progress="90"></div>
+
+                           <script>
+                           document.querySelectorAll('.skill-progress').forEach(el=>{
+                             const p = el.dataset.progress;
+                             setTimeout(()=>el.style.width = p, 300);
+                             });
+                           </script> 
+                            
                         </div>
                     </div>
                     <div class="skill-item">
                         <p>机器学习</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="--progress: 85%"></div>
+                            <div class="skill-progress" data-progress="90"></div>
+                            <script>
+                           document.querySelectorAll('.skill-progress').forEach(el=>{
+                             const p = el.dataset.progress;
+                             setTimeout(()=>el.style.width = p, 300);
+                             });
+                            </script> 
+                            
                         </div>
                     </div>
                     <div class="skill-item">
                         <p>深度学习</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="--progress: 80%"></div>
+                            <div class="skill-progress" data-progress="90"></div>
+                            <script>
+                           document.querySelectorAll('.skill-progress').forEach(el=>{
+                             const p = el.dataset.progress;
+                             setTimeout(()=>el.style.width = p, 300);
+                             });
+                            </script> 
                         </div>
                     </div>
                     <div class="skill-item">
                         <p>心理学研究</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="--progress: 95%"></div>
+                            <div class="skill-progress" data-progress="90"></div>
+                            <script>
+                           document.querySelectorAll('.skill-progress').forEach(el=>{
+                             const p = el.dataset.progress;
+                             setTimeout(()=>el.style.width = p, 300);
+                             });
+                            </script> 
                         </div>
                     </div>
                     <div class="skill-item">
                         <p>数据分析</p>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="--progress: 88%"></div>
+                            <div class="skill-progress" data-progress="90"></div>
+                            <script>
+                           document.querySelectorAll('.skill-progress').forEach(el=>{
+                             const p = el.dataset.progress;
+                             setTimeout(()=>el.style.width = p, 300);
+                             });
+                            </script> 
                         </div>
                     </div>
 
